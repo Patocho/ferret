@@ -15,7 +15,7 @@
 		<legend>Lista de productos</legend>
 	<div class="table-responsive">
 	<form >
-	<input class="form-control" onkeyup="" placeholder="filtrar por numero de folio, titulo, cliente o contacto" type="search" name="filtro" id="filtro">
+	<input class="form-control" onkeyup="" placeholder="filtrar por nombre codigo o descripcion" type="search" name="filtro" id="filtro">
 	</form>
 		@if($productos)
 			<table id="table" class="table table-responsive table-striped table-bordered">
