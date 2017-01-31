@@ -41,4 +41,10 @@ class ProductosController extends Controller
 
 
     }
+
+    public function mostrarProductos(){
+    	$productos = Producto::all();
+    	//return $productos;
+    	return view('lista_productos', compact('productos'));
+    }
 }

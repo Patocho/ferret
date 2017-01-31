@@ -25,6 +25,7 @@ Route::get('/ventas','VentasController@mostrarVistaVentas');
 
 Route::get('/nuevoproducto','ProductosController@mostrarFormProducto');
 Route::post('/nuevoproducto','ProductosController@agregarProducto');
+Route::get('/productos','ProductosController@mostrarProductos');
 
 // Registration routes...
 Route::get('register', 'Auth\AuthController@getRegister');

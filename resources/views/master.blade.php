@@ -54,7 +54,7 @@
                     <a href="" class="dropdown-toggle" data-toggle="dropdown">Inventario<span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
                         <li><a href="{{action('ProductosController@mostrarFormProducto')}}" style="color: black">Registrar Producto<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
-                        <li><a href="#" style="color: black">Stock Disponible<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
+                        <li><a href="{{action('ProductosController@mostrarProductos')}}" style="color: black">Stock Disponible<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
                     </ul>
                 </li>
 
