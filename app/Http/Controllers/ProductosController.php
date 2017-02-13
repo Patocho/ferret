@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Producto;
+use DB;
 Use Session;
 Use Redirect;
 
@@ -47,4 +48,11 @@ class ProductosController extends Controller
     	//return $productos;
     	return view('lista_productos', compact('productos'));
     }
+
+    public function busquedaProductos($texto){
+        $productos=DB::table('producto')->where('codigo','LIKE','%'.$texto.'%')->orWhere('descripcion','LIKE','%'.$texto.'%')->get();
+
+        return response()->json($productos);
+    }
+
 }

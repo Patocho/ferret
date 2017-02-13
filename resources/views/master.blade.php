@@ -61,8 +61,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clientes<span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
                     <ul class="dropdown-menu forAnimate" role="menu">
-                        <li><a href="#" style="color: black">Registrar Cliente<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
-                        <li><a href="#" style="color: black">Lista de Clientes<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
+                        <li><a href="{{action('ClientesController@mostrarFormCliente')}}" style="color: black">Registrar Cliente<span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a></li>
+                        <li><a href="{{action('ClientesController@mostrarClientes')}}" style="color: black">Lista de Clientes<span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a></li>
                     </ul>
                 </li>
 
