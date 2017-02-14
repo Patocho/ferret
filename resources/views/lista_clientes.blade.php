@@ -31,8 +31,8 @@
 							<script type="text/javascript">
 								tmp_c={
 									nombre:"{{$cli->nombre}}",
-									codigo:"{{$cli->telefono}}",
-									descripcion:"{{$cli->direccion}}",
+									telefono:"{{$cli->telefono}}",
+									direccion:"{{$cli->direccion}}",
 									
 								};
 								clientes.push(tmp_c);
@@ -88,8 +88,10 @@
 	    		row+="<td>"+c.telefono+"</td>";
 	    		row+="<td>"+c.direccion+"</td>";
 				row+="<td>";
-				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
 				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Informacion</a>'.replace("#LINK",info);
+				row+="</td>";
+				row+="<td>";
+				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
 				row+="</td>";
 	    		row+="</tr>";
 	    		$("#table > tbody").append(row);
@@ -105,8 +107,10 @@
 	    		row+="<td>"+c.telefono+"</td>";
 	    		row+="<td>"+c.direccion+"</td>";
 				row+="<td>";
-				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
 				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Informacion</a>'.replace("#LINK",info);
+				row+="</td>";
+				row+="<td>";
+				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
 				row+="</td>";
 	    		row+="</tr>";
 	    		$("#table > tbody").append(row);
