@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo','Listaa  de Productos')
+@section('titulo','Lista  de Productos')
 
 @section('contenido')
 
@@ -9,10 +9,27 @@
 	var productos_filtrados=[];
 	var productos=[];
 </script>
+<style type="text/css">
+	th{
+		font-size: 120%;
+		text-align: center;
+	}
+	tr{
+		font-size: 120%;
+	}
+	#cent{
+		text-align: center;
+	}
+	#cab{
+		vertical-align: middle;
+	}
+
+</style>
+
 
 <div class="container">
 	<div class="col col-md-10">
-		<legend>Lista de productos</legend>
+		<legend style="font-weight: bold;font-size: 250%">Lista de Productos</legend>
 	<div class="table-responsive">
 	<form >
 	<input class="form-control" onkeyup="filtrarProductos()" placeholder="filtrar por nombre codigo o descripcion" type="search" name="filtro" id="filtro">
@@ -20,12 +37,12 @@
 		@if($productos)
 			<table id="table" class="table table-responsive table-striped table-bordered">
 				<thead>
-					<th>Nombre</th>
-					<th>Codigo</th>
-					<th>Descripcion</th>
-					<th>Precio Venta</th>
-					<th>Stock</th>
-					<th>Precio Costo</th>
+					<th id="cab">Nombre</th>
+					<th id="cab">Código</th>
+					<th id="cab">Descripción</th>
+					<th id="cab">Precio Venta</th>
+					<th id="cab">Stock</th>
+					<th id="cab">Precio Costo</th>
 					<th></th>
 					<th></th>
 				</thead>
@@ -47,9 +64,9 @@
 								<td>{{$prod->nombre}}</td>
 								<td>{{$prod->codigo}}</td>
 								<td>{{$prod->descripcion}}</td>
-								<td>{{$prod->precio_venta}}</td>
-								<td>{{$prod->stock}}</td>
-								<td>{{$prod->precio_costo}}</td>
+								<td id="cent">{{$prod->precio_venta}}</td>
+								<td id="cent">{{$prod->stock}}</td>
+								<td id="cent">{{$prod->precio_costo}}</td>
 
 								<td><a class="btn btn-link" style="color:blue" href="">Información</a></td>
 								<td>
@@ -96,12 +113,14 @@
 	    		row+="<td>"+c.nombre+"</td>";
 	    		row+="<td>"+c.codigo+"</td>";
 	    		row+="<td>"+c.descripcion+"</td>";
-	    		row+="<td>"+c.precio_venta+"</td>";
-	    		row+="<td>"+c.stock+"</td>";
-	    		row+="<td>"+c.precio_costo+"</td>";
+	    		row+="<td id='cent'>"+c.precio_venta+"</td>";
+	    		row+="<td id='cent'>"+c.stock+"</td>";
+	    		row+="<td id='cent'>"+c.precio_costo+"</td>";
+				row+="<td>";
+				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Información</a>'.replace("#LINK",info);
+				row+="</td>";
 				row+="<td>";
 				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
-				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Informacion</a>'.replace("#LINK",info);
 				row+="</td>";
 	    		row+="</tr>";
 	    		$("#table > tbody").append(row);
@@ -116,12 +135,14 @@
 	    		row+="<td>"+c.nombre+"</td>";
 	    		row+="<td>"+c.codigo+"</td>";
 	    		row+="<td>"+c.descripcion+"</td>";
-	    		row+="<td>"+c.precio_venta+"</td>";
-	    		row+="<td>"+c.stock+"</td>";
-	    		row+="<td>"+c.precio_costo+"</td>";
+	    		row+="<td id='cent'>"+c.precio_venta+"</td>";
+	    		row+="<td id='cent'>"+c.stock+"</td>";
+	    		row+="<td id='cent'>"+c.precio_costo+"</td>";
+				row+="<td>";
+				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Información</a>'.replace("#LINK",info);
+				row+="</td>";
 				row+="<td>";
 				row+='<a class="btn btn-link" style="color:green" href="#LINK">Editar</a>'.replace("#LINK",edit);
-				row+='<a class="btn btn-link" style="color:blue" href="#LINK">Informacion</a>'.replace("#LINK",info);
 				row+="</td>";
 	    		row+="</tr>";
 	    		$("#table > tbody").append(row);

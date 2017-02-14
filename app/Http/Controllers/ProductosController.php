@@ -45,13 +45,11 @@ class ProductosController extends Controller
 
     public function mostrarProductos(){
     	$productos = Producto::all();
-    	//return $productos;
     	return view('lista_productos', compact('productos'));
     }
 
     public function busquedaProductos($texto){
         $productos=DB::table('producto')->where('codigo','LIKE','%'.$texto.'%')->orWhere('descripcion','LIKE','%'.$texto.'%')->orWhere('nombre','LIKE','%'.$texto.'%')->get();
-        //echo($productos);
         return response()->json($productos);
     }
 
