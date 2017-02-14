@@ -37,9 +37,8 @@ class ClientesController extends Controller
     	return view('lista_clientes',compact('clientes'));
     }
 
-    function AJAX_busquedaClientes($texto){
-        $clientes=DB::table('cliente')->where('nombre','LIKE','%'.$texto.'%')->first();
-        return $clientes; 
-        //return response()->json($clientes);
+    public function AJAX_busquedaClientes($texto){
+        $clientes=DB::table('cliente')->where('nombre','LIKE','%'.$texto.'%')->get();
+        return response()->json($clientes);
     }
 }

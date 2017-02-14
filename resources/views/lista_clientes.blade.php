@@ -71,13 +71,13 @@
 					async: false,//importante
 					success: function(result){
 	        		clientes_filtrados=JSON.parse(JSON.stringify(result));
-	        		console.log("AAAAAAA");
+	        		//console.log(clientes_filtrados);
 	    		},error:function (xhr, ajaxOptions, thrownError) {
 		        console.log(xhr.status);
 		        console.log(thrownError);
 	      		}
 	    	});
-	    	//console.log(clientes_filtrados);
+	    	console.log(clientes_filtrados);
 	    	$("#table > tbody").empty();
 	    	for(i in clientes_filtrados){
 	    		c=clientes_filtrados[i];

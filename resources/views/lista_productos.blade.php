@@ -15,7 +15,7 @@
 		<legend>Lista de productos</legend>
 	<div class="table-responsive">
 	<form >
-	<input class="form-control" onkeyup="filtrarProductos()" placeholder="filtrar por codigo o descripcion" type="search" name="filtro" id="filtro">
+	<input class="form-control" onkeyup="filtrarProductos()" placeholder="filtrar por nombre codigo o descripcion" type="search" name="filtro" id="filtro">
 	</form>
 		@if($productos)
 			<table id="table" class="table table-responsive table-striped table-bordered">
@@ -80,13 +80,13 @@
 					url: url_,
 					async: false,//importante
 					success: function(result){
-	        		clientes_filtrados=JSON.parse(JSON.stringify(result));
+	        		productos_filtrados=JSON.parse(JSON.stringify(result));
 	    		},error:function (xhr, ajaxOptions, thrownError) {
 		        console.log(xhr.status);
 		        console.log(thrownError);
 	      		}
 	    	});
-	    	//console.log(clientes_filtrados);
+	    	console.log(productos_filtrados);
 	    	$("#table > tbody").empty();
 	    	for(i in productos_filtrados){
 	    		c=productos_filtrados[i];

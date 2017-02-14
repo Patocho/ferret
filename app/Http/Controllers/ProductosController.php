@@ -50,8 +50,8 @@ class ProductosController extends Controller
     }
 
     public function busquedaProductos($texto){
-        $productos=DB::table('producto')->where('codigo','LIKE','%'.$texto.'%')->orWhere('descripcion','LIKE','%'.$texto.'%')->get();
-
+        $productos=DB::table('producto')->where('codigo','LIKE','%'.$texto.'%')->orWhere('descripcion','LIKE','%'.$texto.'%')->orWhere('nombre','LIKE','%'.$texto.'%')->get();
+        //echo($productos);
         return response()->json($productos);
     }
 
