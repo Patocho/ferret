@@ -12,19 +12,19 @@
 
 <div class="container">
 	<div class="col col-md-10">
-		<legend>Lista de clientes</legend>
+		<legend style="font-weight: bold;font-size: 250%">Lista de clientes</legend>
 	<div class="table-responsive">
 	<form >
-	<input class="form-control" onkeyup="filtrarClientes()" placeholder="filtrar por nombre " type="search" name="filtro" id="filtro">
+	<input autofocus="autofocus" class="form-control" onkeyup="filtrarClientes()" placeholder="filtrar por nombre " type="search" name="filtro" id="filtro" >
 	</form>
 		@if($clientes)
 			<table id="table" class="table table-responsive table-striped table-bordered">
 				<thead>
-					<th>Nombre</th>
-					<th>Teléfono</th>
-					<th>Dirección</th>
-					<th></th>
-					<th></th>
+					<th id="cab">Nombre</th>
+					<th id="cab">Teléfono</th>
+					<th id="cab">Dirección</th>
+					<th id="cab"></th>
+					<th id="cab"></th>
 				</thead>
 			<tbody id="tbody">
 				@foreach($clientes as $cli)

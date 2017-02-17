@@ -9,23 +9,6 @@
 	var productos_filtrados=[];
 	var productos=[];
 </script>
-<style type="text/css">
-	th{
-		font-size: 120%;
-		text-align: center;
-	}
-	tr{
-		font-size: 120%;
-	}
-	#cent{
-		text-align: center;
-	}
-	#cab{
-		vertical-align: middle;
-	}
-
-</style>
-
 
 <div class="container">
 	<div class="col col-md-10">
