@@ -11,7 +11,8 @@ Use Redirect;
 class ProductosController extends Controller
 {
     public function mostrarFormProducto(){
-    	return view('form_registro_producto');
+        $productos=Producto::all()->count();
+    	return view('form_registro_producto',compact('productos'));
     }
 
     public function agregarProducto(Request $r){

@@ -32,7 +32,7 @@
 					<div class="form-group">
 						<label class="control-label col-md-2" for="codigo" style="font-weight: bold;font-size: 100%">Código:</label>
 						<div class="col-md-10">
-							<input type="text" class="form-control" id="codigo" name="codigo">
+							<input type="text" class="form-control" id="codigo" name="codigo" value="{{264500000 +$productos}}">
 						</div>
 					</div>
 					<div class="form-group">
@@ -81,11 +81,11 @@
 						</div>
 					</div>
 				</fieldset>
-				<legend>Datos Calculables</legend>
+				<legend style="font-weight: bold;font-size: 180%">Datos Calculables</legend>
 				<fieldset>
 					<div class="col-md-4">
 						<label class="col-md-5" style="font-weight: bold;font-size: 110%">IVA(%)</label>
-						<input class="col-md-3" type="text" name="iva" id="iva" value="19">
+						<input class="col-md-3" type="text" name="iva" id="iva" onkeyup="calcularPrecio()" value="19">
 					</div>
 
 					<div class="col-md-8">
@@ -99,7 +99,7 @@
 					</br>
 					<div class="col-md-4">
 						<label class="col-md-5" style="font-weight: bold;font-size: 110%">Ganancia(%)</label>
-						<input class="col-md-3" type="text" name="ganancia" id="ganancia" value="35">
+						<input class="col-md-3" type="text" name="ganancia" onkeyup="calcularPrecio()" id="ganancia" value="35">
 					</div>
 					<div class="col-md-8">
 						<label class="col-md-4" style="font-weight: bold;font-size: 110%">Precio+Ganancia = </label>
@@ -115,16 +115,23 @@
 
 		<script type="text/javascript">
 			function calcularPrecio(){
-				var costo=$('#precio_costo').val();
-				var iva =$('#iva').val;
-				var ganancia =$('#ganancia').val;
+				var costo=parseFloat($('#precio_costo').val());
+				var iva =(parseInt(document.getElementById("iva").value))/100;
+				var ganancia = (parseInt(document.getElementById("ganancia").value))/100;
+
+				console.log(costo);
+
 
 				if($('#precio_costo').val()!=''){
+					var coniva = costo + costo*iva ;
+					var tot = coniva+coniva*ganancia;
 
-					$('#precioiva').html(parseInt(costo+(1+(iva/100))  ));
+					$('#precioiva').html(coniva);
+					$('#total').html(tot);
 				}
 				else{
 					$('#total').html(0);
+					$('#precioiva').html(0);
 				}
 
 			}
