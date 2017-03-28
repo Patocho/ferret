@@ -12,13 +12,13 @@
     <title>@yield('titulo')</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/navbar.css">
-    <link rel="stylesheet" type="text/css" href="css/tamañoletras.css">
-    <script src="js/navbar.js"></script>
+    <link href="{{asset('css/simple-sidebar.css')}}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/navbar.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/tamañoletras.css')}}">
+    
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,7 +31,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #257356">
 
     <div id="wrapper">
 
@@ -69,11 +69,7 @@
                 </li>
 
                 <li>
-                    <a href="#">About</a>
-                </li>
-
-                <li>
-                    <a href="#">Cuentas<span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
+                    <a href="{{action('CuentasController@mostrarCuentas')}}">Cuentas<span class="glyphicon glyphicon-usd" aria-hidden="true"></span></a>
                 </li>
 
             </ul>
@@ -96,10 +92,11 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/navbar.js')}}"></script>
 
     <!-- Menu Toggle Script -->
     <script>

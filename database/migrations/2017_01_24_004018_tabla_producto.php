@@ -23,6 +23,7 @@ class TablaProducto extends Migration
             $table->integer('precio_costo');
             $table->string('categoria');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

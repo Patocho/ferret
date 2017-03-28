@@ -16,8 +16,11 @@ class TablaCliente extends Migration
         Schema::create('cliente', function (Blueprint $table) {
             $table->increments('id_cliente');
             $table->string('nombre');
-            $table->string('telefono');
-            $table->string('direccion');
+            $table->string('apellido');
+            $table->string('telefono')->nullable();
+            $table->string('direccion')->nullable();
+            $table->string('comentario')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

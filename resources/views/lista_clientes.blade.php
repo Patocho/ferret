@@ -10,8 +10,7 @@
 	var clientes=[];
 </script>
 
-<div class="container">
-	<div class="col col-md-10">
+	<div class="well">
 		<legend style="font-weight: bold;font-size: 250%">Lista de clientes</legend>
 	<div class="table-responsive">
 	<form >
@@ -58,7 +57,6 @@
 		@endif
 
 	</div>
-</div>
 <script type="text/javascript">
 	function filtrarClientes(){
 		if($('#filtro').val()!=''){

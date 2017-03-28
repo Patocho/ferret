@@ -18,6 +18,7 @@ class TablaVenta extends Migration
             $table->integer('total_f');
             $table->integer('total_b');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

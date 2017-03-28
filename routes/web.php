@@ -35,6 +35,10 @@ Route::get('/nuevoproducto','ProductosController@mostrarFormProducto');
 Route::post('/nuevoproducto','ProductosController@agregarProducto');
 Route::get('/productos','ProductosController@mostrarProductos');
 
+Route::get('/cuentas','CuentasController@mostrarCuentas');
+Route::get('/cuentas/{id}','CuentasController@deudas');
+Route::post('/cuentas/{id}','CuentasController@pagarDeudas');
+
 
 Route::get('/barcode','BarCodeController@codigoBarra');
 

@@ -23,6 +23,7 @@ class TablaEmpresa extends Migration
             $table->string('ciudad');
             $table->string('comuna');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

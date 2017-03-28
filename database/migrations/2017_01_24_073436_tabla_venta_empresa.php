@@ -16,6 +16,7 @@ class TablaVentaEmpresa extends Migration
         Schema::create('venta_empresa', function (Blueprint $table){
             $table->integer('id_venta')->unsigned();
             $table->integer('id_empresa')->unsigned();
+            $table->softDeletes();
 
 
             $table->foreign('id_venta')->references('id_venta')->on('venta')->onDelete('cascade')->onUpdate('cascade');

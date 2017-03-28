@@ -21,8 +21,10 @@ class ClientesController extends Controller
     	echo($r->direccion ."</br>");*/
 
     	$cliente = new Cliente(array('nombre'=>$r->get('nombre'),
+            'apellido'=>$r->get('apellido'),
             'telefono'=>$r->get('telefono'),
             'direccion'=>$r->get('direccion'),
+            'comentario'=>$r->get('comentario'),
 
             ));
 
@@ -41,4 +43,5 @@ class ClientesController extends Controller
         $clientes=DB::table('cliente')->where('nombre','LIKE','%'.$texto.'%')->get();
         return response()->json($clientes);
     }
+
 }
