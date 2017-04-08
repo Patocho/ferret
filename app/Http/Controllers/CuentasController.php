@@ -43,4 +43,38 @@ class CuentasController extends Controller
 
         return view('editar_cliente',compact('cliente'));
     }
+
+    public function editaCliente(Request $r){
+
+        $cliente = Cliente::find($r->id_cliente);
+
+        $cliente->nombre = $r->nombre;
+        $cliente->apellido = $r->apellido;
+        $cliente->telefono = $r->telefono;
+        $cliente->direccion = $r->direccion;
+        $cliente->comentario = $r->comentario;
+
+        $cliente->save();
+        $msj=["title" => "Registro", "text" => "Cambio realizado"];
+        return Redirect()->action('CuentasController@deudas',$r->id_cliente)->with("mensaje", $msj);
+    }
+
+    public function formDeuda($id){
+        $cliente = Cliente::find($id);
+        return view('agregar_deuda', compact('cliente'));
+    }
+
+    public function nuevaDeuda(Request $r){
+        $cliente = Cliente::find($r->id_cliente);
+        //$contador = Deuda::all()->count();
+        $deuda = new Deuda(array('descripcion'=>$r->descripcion,
+            'valor'=>$r->valor,
+            ));
+
+        $deuda->clientes()->associate($cliente);
+        $deuda->save();
+
+        $msj=["title" => "Registro", "text" => "Deuda agregada"];
+        return Redirect()->action('CuentasController@deudas',$r->id_cliente)->with("mensaje", $msj);
+    }
 }

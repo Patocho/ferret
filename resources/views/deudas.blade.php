@@ -33,7 +33,7 @@
 			<legend style="font-weight: bold;font-size: 250%">{{$cliente->nombre}} {{$cliente->apellido}}</legend>
 			<h2>Comentario: {{$cliente->comentario}}</h2>
 			<a href="{{action('CuentasController@editar',$cliente->id_cliente)}}" class="btn btn-info">Editar Cliente</a>
-			<a href="#" class="btn btn-warning">Agregar Deuda</a>
+			<a href="{{action('CuentasController@formDeuda',$cliente->id_cliente)}}" class="btn btn-warning">Agregar Deuda</a>
 
 			<hr style="width:100%;">
 			<form class="form" id="form" method="post" autocomplete="off">

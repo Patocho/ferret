@@ -49,3 +49,6 @@ Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
 
 Route::get('/cuentas/{id}/editar','CuentasController@editar');
+Route::post('/cuentas/{id}/editar','CuentasController@editaCliente');
+Route::get('/cuenta/{id}/registrar','CuentasController@formDeuda');
+Route::post('/cuenta/{id}/registrar','CuentasController@nuevaDeuda');
