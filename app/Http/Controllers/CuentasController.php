@@ -37,4 +37,10 @@ class CuentasController extends Controller
             echo ($val);
         }
     }
+
+    public function editar($id){
+        $cliente = Cliente::find($id);
+
+        return view('editar_cliente',compact('cliente'));
+    }
 }

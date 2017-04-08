@@ -40,9 +40,12 @@ Route::get('/cuentas/{id}','CuentasController@deudas');
 Route::post('/cuentas/{id}','CuentasController@pagarDeudas');
 
 
+
 Route::get('/barcode','BarCodeController@codigoBarra');
 
 
 // Registration routes...
 Route::get('register', 'Auth\AuthController@getRegister');
 Route::post('register', ['as' => 'auth/register', 'uses' => 'Auth\AuthController@postRegister']);
+
+Route::get('/cuentas/{id}/editar','CuentasController@editar');

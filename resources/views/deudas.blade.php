@@ -32,38 +32,8 @@
 		<div class="well" >
 			<legend style="font-weight: bold;font-size: 250%">{{$cliente->nombre}} {{$cliente->apellido}}</legend>
 			<h2>Comentario: {{$cliente->comentario}}</h2>
-			<a href="#" class="btn btn-info">Editar Cliente</a>
+			<a href="{{action('CuentasController@editar',$cliente->id_cliente)}}" class="btn btn-info">Editar Cliente</a>
 			<a href="#" class="btn btn-warning">Agregar Deuda</a>
-			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
-			<div class="modal fade" id="myModal" role="dialog">
-		    <div class="modal-dialog">
-		    
-		      <!-- Modal content-->
-		      <div class="modal-content">
-		        <div class="modal-header">
-		          <button type="button" class="close" data-dismiss="modal">&times;</button>
-		          <h4 class="modal-title">{{$cliente->nombre}} {{$cliente->apellido}}</h4>
-		        </div>
-		        <div class="modal-body">
-		        	<form class="form" id="form" method="post" autocomplete="off">
-		        	<label>Nombre:</label>
-		        	<input type="text" placeholder="Ingrese Nombre" for="nombre" class="form-control" id="nombre" name="nombre">
-		        	<label>Apellido:</label>
-		        	<input type="text" placeholder="Ingrese Apellido" for="apellido" class="form-control" id="apellido" name="apellido">
-
-		        	</form>
-		         
-		        </div>
-		        <div class="modal-footer">
-		        	<button type="submit" class="btn btn-success">Registrar</button>
-		            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-		        </div>
-		      </div>
-		      
-		    </div>
-		  </div>
-
 
 			<hr style="width:100%;">
 			<form class="form" id="form" method="post" autocomplete="off">
