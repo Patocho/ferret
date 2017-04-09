@@ -3,10 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Deuda;
 
 class DashboardController extends Controller
 {
     public function mostrarDashboard(){
-    	return view('Dashboard');
+    	$deudas = Deuda::all();
+    	$total = 0;
+
+    	foreach ($deudas as $key => $deuda) {
+    		$total = $total + $deuda->valor;
+    		//echo($total);
+    	}
+    	return view('Dashboard',compact('total'));
     }
 }

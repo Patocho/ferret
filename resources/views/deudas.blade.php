@@ -31,7 +31,10 @@
 
 		<div class="well" >
 			<legend style="font-weight: bold;font-size: 250%">{{$cliente->nombre}} {{$cliente->apellido}}</legend>
+			<h3>Teléfono: {{$cliente->telefono}}</h2>
+			<h3>Dirección: {{$cliente->direccion}}</h2>
 			<h2>Comentario: {{$cliente->comentario}}</h2>
+			<hr style="width:100%;">
 			<a href="{{action('CuentasController@editar',$cliente->id_cliente)}}" class="btn btn-info">Editar Cliente</a>
 			<a href="{{action('CuentasController@formDeuda',$cliente->id_cliente)}}" class="btn btn-warning">Agregar Deuda</a>
 

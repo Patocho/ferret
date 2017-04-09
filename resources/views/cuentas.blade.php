@@ -1,8 +1,9 @@
 @extends('master')
 
-@section('titulo','Registro de Clientes')
+@section('titulo','Clientes')
 
 @section('contenido')
+
 <script type="text/javascript">
 	clientes=[];
 	clientes_filtrados=[];
@@ -31,7 +32,7 @@
 			<input autofocus="autofocus" class="form-control" placeholder="filtrar por nombre o rut" onkeyup="filtrarClientes()" type="search" name="filtro" id="filtro">
 		</form>
 
-		@if(isset($clientes)&&!$clientes->isEmpty())
+		@if($clientes)
 			<table id="table" class="table table-responsive table-striped table-bordered">
 				<thead>
 					<th>Nombre</th>
@@ -61,7 +62,7 @@
 						<td>{{$cli->telefono}}</td>
 						<td>
 							<center>
-								<a type="button" class="btn btn-success" href="{{action('CuentasController@deudas',$cli->id_cliente)}}">Pagar</a>
+								<a type="button" class="btn btn-success" href="{{action('CuentasController@deudas',$cli->id_cliente)}}">Gestionar</a>
 							</center>
 						</td>
 					</tr>
@@ -72,8 +73,7 @@
 			No existen clientes registrados
 		@endif
 	</div>
-
-		<script type="text/javascript">
+<script type="text/javascript">
 	function filtrarClientes(){
 		if($('#filtro').val()!=''){
 			console.log($('#filtro').val());
@@ -95,12 +95,14 @@
 	    	$("#table > tbody").empty();
 	    	for(i in clientes_filtrados){
 	    		c=clientes_filtrados[i];
-	    		info="{{action('CuentasController@deudas',$cli->id_cliente)}}";
+	    		console.log(c.id_cliente);
+	    		info="{{action('CuentasController@deudas','#VALUE')}}".replace('#VALUE',c.id_cliente);
+
 	    		row="<tr>";
 	    		row+="<td>"+c.nombre+"</td>";
 	    		row+="<td>"+c.apellido+"</td>";
-	    		row+="<td>"+c.telefono+"</td>";
 	    		row+="<td>"+c.direccion+"</td>";
+	    		row+="<td>"+c.telefono+"</td>";
 				row+="<td>";
 				row+="<center>"
 				row+='<a type="button" class="btn btn-success" href="#LINK">Gestionar</a>'.replace("#LINK",info);
@@ -114,8 +116,7 @@
 			$("#table > tbody").empty();
 	    	for(i in clientes){
 	    		c=clientes[i];
-				edit="#";
-	    		info="{{action('CuentasController@deudas',$cli->id_cliente)}}";
+	    		info="{{action('CuentasController@deudas','#VALUE')}}".replace('#VALUE',c.id_cliente);
 	    		row="<tr>";
 	    		row+="<td>"+c.nombre+"</td>";
 	    		row+="<td>"+c.apellido+"</td>";
@@ -126,7 +127,6 @@
 				row+='<a type="button" class="btn btn-success" href="#LINK">Gestionar</a>'.replace("#LINK",info);
 				row+="</center>"
 				row+="</td>";
-
 	    		row+="</tr>";
 	    		$("#table > tbody").append(row);
 	    	}

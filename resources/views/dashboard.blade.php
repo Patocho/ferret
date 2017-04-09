@@ -3,5 +3,11 @@
 @section('titulo','Dashboard')
 
 @section('contenido')
-    <p>Aqui tiene que ir el dashboard</p>
+    <div class="well">
+    	<div class="col-md-8">
+    		<h1>Deudas Totales: {{$total}}</h1>
+    	</div>
+    	<hr>
+
+    </div>
 @endsection
