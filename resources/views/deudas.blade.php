@@ -39,7 +39,7 @@
 			<a href="{{action('CuentasController@formDeuda',$cliente->id_cliente)}}" class="btn btn-warning">Agregar Deuda</a>
 
 			<hr style="width:100%;">
-			<form class="form" id="form" method="post" autocomplete="off">
+			<form class="form" name="form" id="form" method="post" autocomplete="off">
 				<fieldset>
 					{{csrf_field()}}
 
@@ -60,7 +60,7 @@
 									<td style="font-size: 120%">{{$deuda->valor}}</td>
 									<td>
 										<center>
-											<input type="checkbox" onclick="sumar({{$indice}})" id="deuda" name="deuda[]" value={{$indice}}>
+											<input type="checkbox" onclick="sumar({{$indice}})" id="deuda" name="deuda[]" value="{{$deuda->id_deuda}}">
 											<script type="text/javascript">
 												tmp_c={
 													indice: "{{$indice}}",
@@ -94,7 +94,8 @@
 					<div class="form-group">
 						<div class="col-md-12 col-md-push-8">
 							<div class="row">&nbsp;</div>
-							<button type="submit" class="btn btn-success">Registrar</button>
+
+							<input type="button" onclick="pregunta()" class="btn btn-success" value="Realizar Pago">
 							&nbsp;
 						<a href="#" class="btn btn-warning">Cancelar</a>
 						</div>
@@ -122,6 +123,12 @@
 			//console.log(est);
 			//console.log(subTotal);
 			$('#subtotal').html(subTotal);
+		}
+
+		function pregunta(){ 
+    		if (confirm('¿ESTA SEGURO DE REALIZAR PAGO?')){ 
+       			document.form.submit();
+    		} 
 		}	
 		</script>
 		

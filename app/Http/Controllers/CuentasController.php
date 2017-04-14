@@ -34,8 +34,12 @@ class CuentasController extends Controller
     public function pagarDeudas(Request $r){
     	
         foreach ($r->get("deuda") as $key => $val) {
-            echo ($val);
+            $deuda = Deuda::find($val);
+            $deuda->delete();
         }
+        echo ($r->id_cliente);
+        $msj=["title" => "Registro", "text" => "Deudas Pagadas"];
+        //return Redirect()->action('CuentasController@deudas',$r->id_cliente)->with("mensaje", $msj);
     }
 
     public function editar($id){

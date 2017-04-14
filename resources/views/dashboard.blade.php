@@ -4,10 +4,10 @@
 
 @section('contenido')
     <div class="well">
-    	<div class="col-md-8">
+    	
     		<h1>Deudas Totales: {{$total}}</h1>
-    	</div>
-    	<hr>
-
+    		<hr>
+    		<h1>Numero de Deudas: {{$deudas->count()}}</h1>
+    	
     </div>
 @endsection
